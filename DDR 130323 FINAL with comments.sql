@@ -290,7 +290,7 @@ FROM [NHSE_Sandbox_MentalHealth].[dbo].[TEMP_DEM_DDRStep1]
 --Filter the Effective Snapshot Date to calculate pbar for pre-covid
 WHERE [Effective_Snapshot_Date]<'2020-03-01'
 GROUP BY [Org Type],[Org Name],[Org Code],[ICB Name],[Region Name]) AS x
---Join to TEMP_DEM_DDRStep1 so that the previously calculated dementia estimate, dementia register,DDR, pbar2, UCL2 and LCL2 can be used alongside the calculated pbar, UCL and LCL
+--Join to TEMP_DEM_DDRStep2 so that the previously calculated dementia estimate, dementia register,DDR, pbar2, UCL2 and LCL2 can be used alongside the calculated pbar, UCL and LCL
 LEFT JOIN [NHSE_Sandbox_MentalHealth].[dbo].[TEMP_DEM_DDRStep2] y ON x.[Org Code] = y.[Org Code]
 --Filter the Effective Snapshot Date to calculate UCL and LCL for pre-covid
 WHERE [Effective_Snapshot_Date]<'2020-03-01'
@@ -336,7 +336,7 @@ FROM [NHSE_Sandbox_MentalHealth].[dbo].TEMP_DEM_DDRStep1
 --Filter the Effective Snapshot Date to calculate pbar for post-covid
 WHERE [Effective_Snapshot_Date]>'2020-03-01'
 GROUP BY [Org Type],[Org Name],[Org Code],[ICB Name],[Region Name]) AS x
---Join to TEMP_DEM_DDRStep1 so that the previously calculated dementia estimate, dementia register,DDR, pbar2, UCL2 and LCL2 can be used alongside the calculated pbar, UCL and LCL
+--Join to TEMP_DEM_DDRStep2 so that the previously calculated dementia estimate, dementia register,DDR, pbar2, UCL2 and LCL2 can be used alongside the calculated pbar, UCL and LCL
 LEFT JOIN [NHSE_Sandbox_MentalHealth].[dbo].TEMP_DEM_DDRStep2 y ON x.[Org Code] = y.[Org Code]
 --Filter the Effective Snapshot Date to calculate UCL and LCL for post-covid
 WHERE [Effective_Snapshot_Date]>'2020-03-01'
