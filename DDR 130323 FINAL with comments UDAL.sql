@@ -79,7 +79,7 @@ FROM
 		--Pivot section end
 --Joins to the CCG lookup table to match any old CCG codes with the latest CCG2021 codes
 --The datatypes didn't match as UKHF data doesn't accept nulls and the lookup table does so collate database_default changes that to allow the join
-LEFT JOIN [MHDInternal].[CCG_2020_Lookup] a ON Org_Code= a.IC_CCG COLLATE DATABASE_DEFAULT
+LEFT JOIN [MHDInternal].[REFERENCE_CCG_2020_Lookup] a ON Org_Code= a.IC_CCG COLLATE DATABASE_DEFAULT
 --Joins to the TEMP_SubICBtoRegion table (from above) to get the latest (2022) Sub-ICB codes, Sub-ICB names and matches to ICB codes, ICB names and Region codes and Region names
 LEFT JOIN [MHDInternal].[TEMP_SubICBtoRegion] b ON a.CCG21 = b.[Sub ICB Code]
 --Filter for CCGs or Sub-ICBs - the UKHF data has all geography types in the column Org_Type i.e. Region, STP, CCG and we only want CCG or Sub-ICB
@@ -121,7 +121,7 @@ FROM
 		--Pivot section end
 --Joins to the CCG lookup table to match any old CCG codes with the latest CCG2021 codes
 --The datatypes didn't match as UKHF data doesn't accept nulls and the lookup table does so collate database_default changes that to allow the join
-LEFT JOIN [MHDInternal].[CCG_2020_Lookup] a ON Org_Code= a.IC_CCG COLLATE DATABASE_DEFAULT
+LEFT JOIN [MHDInternal].[REFERENCE_CCG_2020_Lookup] a ON Org_Code= a.IC_CCG COLLATE DATABASE_DEFAULT
 --Joins to the TEMP_SubICBtoRegion table (from above) to get the latest (2022) Sub-ICB codes, Sub-ICB names and matches to ICB codes, ICB names and Region codes and Region names
 LEFT JOIN [MHDInternal].[TEMP_SubICBtoRegion] b ON a.CCG21 = b.[Sub ICB Code]
 --Filter for CCGs or Sub-ICBs - the UKHF data has all geography types in the column Org_Type i.e. Region, STP, CCG and we only want CCG or Sub-ICB
@@ -163,7 +163,7 @@ FROM
 		--Pivot section end
 --Joins to the CCG lookup table to match any old CCG codes with the latest CCG2021 codes 
 --The datatypes didn't match as UKHF data doesn't accept nulls and the lookup table does so collate database_default changes that to allow the join
-LEFT JOIN [MHDInternal].[CCG_2020_Lookup] a ON Org_Code= a.IC_CCG COLLATE DATABASE_DEFAULT
+LEFT JOIN [MHDInternal].[REFERENCE_CCG_2020_Lookup] a ON Org_Code= a.IC_CCG COLLATE DATABASE_DEFAULT
 --Joins to the TEMP_SubICBtoRegion table (from above) to get the latest (2022) Sub-ICB codes, Sub-ICB names and matches to ICB codes, ICB names and Region codes and Region names
 LEFT JOIN [MHDInternal].[TEMP_SubICBtoRegion] b ON a.CCG21 = b.[Sub ICB Code] 
 --Filter for CCGs or Sub-ICBs - the UKHF data has all geography types in the column Org_Type i.e. Region, STP, CCG and we only want CCG or Sub-ICB
